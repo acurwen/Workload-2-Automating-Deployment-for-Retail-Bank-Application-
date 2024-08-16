@@ -301,7 +301,7 @@ Virtual environments are isolated environments that can be configured to have ju
 
 This virtual environment was created during the Jenkins build, as the `python3 -m venv [name-of-environment]` command is in the 'Build' stage of the Jenkins file.
 
-10. **Installed AWS EB CLI on the Jenkins EC2 server**
+## 10. **Installed AWS EB CLI on the Jenkins EC2 server**
     
 I ran the below commands to install the AWS Elastic Beanstalk Command Line Interface onto my EC2 while within my venv. 
 
