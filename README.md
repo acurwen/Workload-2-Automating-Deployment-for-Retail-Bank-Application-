@@ -474,6 +474,31 @@ However, before my Jenkins EC2 completely shut down, I was able to test the edit
 
 ![image](https://github.com/user-attachments/assets/03318580-e973-4e40-85bc-651ba21d8546)
 
+## **Update:**
+
+Ran a build with the updated script and it successfully got through the Build and Test stage and echo'd the `Memory use is within limits.` message in the Console Output logs.
+
+The build did not make it to the Deploy stage, however, as it said that the "Environment venv already exists", which is true. And I remember that we were to add in the Deploy section at the very end of the workload and then build again, so that's most likely why the Deploy stage is now failing - the code in that section is redundant at this point. But I wanted to show that the script worked as intended within a Jenkins build. 
+
+![image](https://github.com/user-attachments/assets/da6ad7c9-56d9-43d5-bf57-17c40309f29d)
+
+**History of builds (for reference):**
+
+Build # 1 was when I saved my initial script to the wrong name. 
+
+Build # 2 was saving it to the right name.
+
+Build # 3 was when I added in the deploy stage for the first time, for reference. 
+
+Afterwards, the builds shown had either failed the deploy stages due to my reasoning above or the other stages failed due to some trial and error or me simply cancelling the build early. 
+
+Build # 10 is the latest where I checked the most recent version of my script.
+
+
+
+![image](https://github.com/user-attachments/assets/18b956fc-67a5-4064-af03-69ef408cb4e3)
+
+
 ## SYSTEM DESIGN DIAGRAM:
 
 ![image](https://github.com/user-attachments/assets/47cbd619-c913-4dee-b343-70152728619c)
@@ -492,7 +517,7 @@ While creating my security group for my EC2 instance/Jenkins server, I received 
 
 ## **Curious about:**
 
-1. Looking into the details of the venv instance, I see that the IAM service roles we made for Workload 1 are already present (AWSElasticBeanstalkWebTier, WorkerTier and MulticontainerDocker). I also see that it has a security group  that has inbound rules of 80 for HTTP and 22 for Jenkins. Wondering where in the setup we implemented either of these things -- I'm guessing the venv's security groups were modeled after the Jenkins instance's security groups.
+1. Looking into the details of the venv instance, I see that the IAM service roles we made for Workload 1 are already present (AWSElasticBeanstalkWebTier, WorkerTier and MulticontainerDocker). I also see that it has a security group  that has inbound rules of 80 for HTTP and 22 for Jenkins. Wondering where in the setup we implemented either of these things -- I'm guessing the venv's security groups were modeled after the Jenkins instance's security groups. (Edit: I see that this was configured via the Jenkins build via the console output logs.)
 
 ![image](https://github.com/user-attachments/assets/a1d410bb-6915-4b1f-8147-7deba4927bb8)
 
