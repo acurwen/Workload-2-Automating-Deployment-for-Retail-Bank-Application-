@@ -385,7 +385,8 @@ Bank App:
 
 ## SYSTEM DESIGN DIAGRAM:
 
-![Workload 2 Diagram drawio (1)](https://github.com/user-attachments/assets/7592cd40-b906-471a-9a9c-7df3dc6effbd)
+![image](https://github.com/user-attachments/assets/47cbd619-c913-4dee-b343-70152728619c)
+
 
 Before starting this Workload, I created a draft of this diagram while reading through the instructions. This helped to provide a framework of how to go about doing this project. The most helpful part was adding in the number of each step to understand the order of how we go about deploying the retail application. Then once I finished the project, I went back in to adjust sections and to add details. 
 
